@@ -4,7 +4,7 @@
 
 - Virtual Box o VM Ware
 
-- Maquina Virtual con Sistema Operativo "UBUNTU" version 22.04 o superior
+- Maquina Virtual con Sistema Operativo "Ubuntu" version 22.04 o superior
  - El servidor Wazuh puede ser instalado en una variedad de distribuciones de Linux pero en mi proyecto lo hare en Ubuntu
 
 - Acceso a internet 
@@ -47,10 +47,11 @@
  - Al completar la instalacion wazuh te brindara un usuario y contraseña para ingrear al Dashboard de Wazuh:
 
    INFO: --- Summary ---
-   INFO: You can access the web interface https://<wazuh-dashboard-ip>
-      User: admin
-      Password: <ADMIN_PASSWORD>
-   INFO: Installation finished.
+   INFO: You can access the web interface https://<wazuh-dashboard-ip> 
+      User: admin 
+      Password: <ADMIN_PASSWORD> 
+   INFO: Installation finished. 
+
 
 ### Instalacion para entornos de Produccion
 
@@ -60,15 +61,19 @@
 
 - Puedes instalar los agentes en una gran variedad de Sistemas Operativos por ejemplo en las distros mas usadas de Linux (Ubuntu,Fedora,Debian), en Windows 7 y versiones superiores, MacOS, etc.
 
-_ Despues de obtener el usuario y contraseñia de wazuh puedes entrar al dashboard y desde ahi puedes generar el codigo que te proporciona el propio wazuh para que puedas ejecutarlas a la maquina que quieras que sea tu wazuh-agent 
+- Despues de obtener el usuario y contraseñia de wazuh puedes entrar al dashboard y desde ahi puedes generar el codigo que te proporciona el propio wazuh para que puedas ejecutarlas a la maquina que quieras que sea tu wazuh-agent 
 
 - Una vez que este en el dashboard de wazuh puedes hacer un click al menú desplegable y en la seccion de "server management" hay una seccion donde te dira "+ Deploy new agent" debes ingresar ahi y seguir los pasos que te pide para que te genere un codigo para el SO especifico que quieras que sea tu agente
 
 - Un ejemplo del codigo que te deberia generar para Windows seria este:
  
- 1er.- Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.8.1-1.msi -OutFile ${env.tmp}\wazuh-agent; msiexec.exe /i ${env.tmp}\wazuh-agent /q WAZUH_MANAGER='167.99.224.23' WAZUH_AGENT_GROUP='default' WAZUH_AGENT_NAME='asdfasd' 
+ 1er codigo:
+
+  Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.8.1-1.msi -OutFile ${env.tmp}\wazuh-agent; msiexec.exe /i ${env.tmp}\wazuh-agent /q WAZUH_MANAGER='167.99.224.23' WAZUH_AGENT_GROUP='default' WAZUH_AGENT_NAME='asdfasd' 
  
- 2do .- NET START WazuhSvc
+ 2do codigo: 
+
+  NET START WazuhSvc
 
 - Despues de instalar el agente se te generara un archivo ossec.conf, con este archivo wazuh podra trabajar con tu agente
 
