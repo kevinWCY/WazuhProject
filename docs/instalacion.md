@@ -2,7 +2,7 @@
 
 ## REQUISITOS PREVIOS
 
-- Virtual Box o VM Ware
+- Virtual Box o VM Ware o Servidor
 
 - Maquina Virtual con Sistema Operativo "Ubuntu" version 22.04 o superior
  - El servidor Wazuh puede ser instalado en una variedad de distribuciones de Linux pero en mi proyecto lo hare en Ubuntu
@@ -35,7 +35,7 @@
 
 ## INSTALACION DE WAZUH 
 
-### Instalacion para entorno de Laboratorio
+### Instalacion para entorno de Laboratorio para VM y Servidor
  
  - Ir a al sitio oficial de Wazuh https://documentation.wazuh.com/current/quickstart.html
 
