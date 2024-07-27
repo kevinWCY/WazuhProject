@@ -4,10 +4,10 @@
 
 1.- Configuracion inicial del servidor wazuh
 2.- Configuracion de Agentes Wazuh
-  - Configuracion en Windows
   - Configuracion en Linux
-3.- 
-4.-
+  - Configuracion en Windows
+3.- Configuracion del Dashboard de Wazuh
+4.- Monitoreo y Mantenimiento 
 
 ## CONFIGURACION INICIAL DEL SERVIDOR WAZUH
 
@@ -79,7 +79,56 @@
 
 ### CONFIGURACION PARA LINUX
 
-- 
+1.- **editar el archivo de configuracion del agente** 
 
+```bash
+    sudo vim /var/ossec/etc/ossec.conf
+    ```
+ - Agregar en la seccion <client> en <address> asegurate que la ip sea la del Servidor de Wazuh
+
+  <client>
+   <address>IP_Servidor_Wazuh</address>
+  </client>
+
+2.- **reiniciar el agente wazuh**
+```bash
+    sudo sytemctl restart wazuh-agent
+    ``` 
 
 ### CONFIGURACION PARA WINDOWS 
+
+1.- **editar el archivo de configuracion del agente**
+ 
+- Abre el archivo ossec.conf con powershell con permisos de administrador, puede estar ubicado en:
+
+```bash
+    notepad C:\Program Files (x86)\ossec-agent\ossec.conf
+    ```
+- Asegurate de que en la seccion <client> este la direccion IP del servidor Wazuh
+
+2.- **reinicia los servicios de wazuh-agent**
+
+```bash
+    Restart-Service -Name "wazuh-agent"
+    ```
+## CONFIGURACION DEL DASHBOARD DE WAZUH
+
+1.- **Acceder al dashboard de wazuh**
+
+ - Abrir algun navegado web para acceder al dashboard de wazuh usando la Ip del servidor.
+ 
+    http:/167.99.234.x 
+
+2,- **configurar el Dashboard**
+
+ - ```bash
+    sudo vim /var/ossec/etc/ossec.conf
+    ```
+ - Para configurar el Dashboard hay dos formas de hacerlo, si vas al menu a la seccion de "server management" y de ahi a Settings puedes ver que te aparecera las coniguraciones principales del servidor wazuh 
+ 
+ - La otra forma es ingresando por consola al ossec.conf de tu "servidor de wazuh" 
+
+
+
+
+
