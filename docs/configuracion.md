@@ -13,13 +13,73 @@
 
 1.- **acceder al servidor por ssh**:
 
- - Por Seguridad y buenas practica es importante generar llave Privada y Publica para tu servidor
+- Por Seguridad y buenas practica es importante generar llave Privada y Publica para tu servidor
  
- - Acceder al servidor es sencillo: 
-  - Si estas en la maquina donde generaste las llaves puedes acceder con la llave publica:
-  ej:
-   - ssh -i _ruta_llavePublica_ user@ip_servidor
+- Acceder al servidor es sencillo:
 
- - Si quieres entrar desde otra Maquina agena a donde generaste las llaves, se puede hacer siempre que uses la llave privada
-  ej:
-   - ssh -i _ruta_llavePrivada_ user@ip_servidor
+ - Si estas en la maquina donde generaste las llaves puedes acceder con la llave publica:
+ 
+```bash
+    ssh -i _ruta_llavePublica_ user@_ip_servidor
+    ```
+
+- Si quieres entrar desde otra Maquina agena a donde generaste las llaves, se puede hacer siempre que uses la llave privada
+  
+```bash
+    ssh -i _ruta_llavePrivada_ user@_ip_servidor
+    ```
+
+2.- **configurar el archivo ossec.conf**
+
+- Todos los agentes tienen el archivo ossec.conf 
+
+- Editar el archivo con vim o nano  "/var/ossec/etc/ossec.conf" para que haya comunicaion entre tu agente y wazuh:
+
+```bash
+    sudo vim /var/ossec/etc/ossec.conf    //no archivo ossec no siempre estara en esta misma ruta
+    ```
+3.- **ver el estado de tu servidor wazuh**
+
+- Si al intentar entrar a tu wazuh-dashboard no te deja acceder con el usuario y contraseña que te dieron es probable que alguno de los componentes de wazuh esten inactivos, para verificar eso puedes poner los siguiente:
+
+```bash
+    sudo systemctl status wazuh-manager
+    ```
+```bash
+    sudo systemctl status wazuh-manager
+    ```
+```bash
+    sudo systemctl status wazuh-manager
+    ```
+- Los tres componentes deben estar activos para usar wazuh, para activarlo simplemente usas estos comandos:
+
+```bash
+    sudo systemctl start wazuh-manager
+    ```
+```bash
+    sudo systemctl start wazuh-manager
+    ```
+```bash
+    sudo systemctl start wazuh-manager
+    ```
+
+4.- **reiniciar los servicios de wazuh**
+
+- Este comando es importante hacerlo porque te actualiza el wazuh si es que hiciste algun cambio en alguno de sus archivos 
+
+```bash
+    sudo systemctl restart wazuh-manager
+    ```
+
+```bash
+    sudo systemctl restart wazuh-indexer
+    ```
+
+## CONFIGURACION DE AGENTES WAZUH 
+
+### CONFIGURACION PARA LINUX
+
+- 
+
+
+### CONFIGURACION PARA WINDOWS 
